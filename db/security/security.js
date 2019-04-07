@@ -1,4 +1,4 @@
-const {equipmentModal} = require('../model.js')
+const {securityModal} = require('../model.js')
 
 class Mongodb{
     constructor(){
@@ -6,7 +6,7 @@ class Mongodb{
     }
     query(){
         return new Promise((resolve, reject) => {
-            equipmentModal.find({}, (err, res) => {
+            securityModal.find({}, (err, res) => {
                 if(err){
                     reject(err)
                 }
@@ -16,7 +16,7 @@ class Mongodb{
         })
     }
     add(obj){
-        const m = new equipmentModal(obj)
+        const m = new securityModal(obj)
         return new Promise((resolve,reject) => {
             m.save((err,res) => {
                 if(err){

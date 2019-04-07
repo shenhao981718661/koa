@@ -17,7 +17,18 @@ var equiSchema = new Schema({
     remarks: {type: String}
 }, { collection: 'equipment' })
 const equipmentModal = mongoose.model('equipment', equiSchema)
+
+//保安信息表
+var securitySchema = new Schema({
+    name: {type: String},
+    type: {type: String},
+    region: {type: String},
+    date: {type: String},
+    remarks: {type: String}
+}, { collection: 'security' })
+const securityModal = mongoose.model('security', securitySchema)
 module.exports = {
     UserModal,
-    equipmentModal
+    equipmentModal,
+    securityModal
 };

@@ -1,5 +1,5 @@
 const router = require('koa-router')();
-const db = require('../db/equipment/equipment.js')
+const db = require('../db/security/security.js')
 
 const routers = router
     .get('/', async (ctx) => {
