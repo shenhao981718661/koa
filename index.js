@@ -9,6 +9,8 @@ const static = require('koa-static');
 const user = require('./routers/user.js')
 const equipment = require('./routers/equipment.js')
 const security = require('./routers/security')
+const owner = require('./routers/owner.js')
+const housing =require('./routers/housing.js')
 
 const app = new Koa()
 app.use(bodyParser())
@@ -16,9 +18,11 @@ app.use(cors());
 
 let router = new Router()
 
-router.use('/equipment', equipment.routes(),equipment.allowedMethods())
 router.use('/user', user.routes(),user.allowedMethods())
-router.use('/security',security.routes(),security.allowedMethods)
+router.use('/equipment', equipment.routes(),equipment.allowedMethods())
+router.use('/security',security.routes(),security.allowedMethods())
+router.use('/owner', owner.routes(),owner.allowedMethods())
+router.use('/housing', housing.routes(),housing.allowedMethods())
 app.use(router.routes()).use(router.allowedMethods())
 app.use(static(
     path.join( __dirname,  './static')

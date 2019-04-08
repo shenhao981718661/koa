@@ -27,8 +27,34 @@ var securitySchema = new Schema({
     remarks: {type: String}
 }, { collection: 'security' })
 const securityModal = mongoose.model('security', securitySchema)
+
+//业主信息表
+var ownerSchema = new Schema({
+    name: {type: String},
+    age: {type: String},
+    sex: {type: String},
+    room: {type: String},
+    tel: {type: String},
+    date: {type: String},
+    remarks: {type: String}
+}, { collection: 'owner' })
+const ownerModal = mongoose.model('owner', ownerSchema)
+
+//住户信息表
+var housingSchema = new Schema({
+    name: {type: String},
+    age: {type: String},
+    sex: {type: String},
+    room: {type: String},
+    tel: {type: String},
+    date: {type: String},
+    remarks: {type: String}
+}, { collection: 'housing' })
+const housingModal = mongoose.model('housing', housingSchema)
 module.exports = {
     UserModal,
     equipmentModal,
-    securityModal
+    securityModal,
+    ownerModal,
+    housingModal
 };
