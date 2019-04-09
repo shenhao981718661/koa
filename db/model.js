@@ -51,10 +51,42 @@ var housingSchema = new Schema({
     remarks: {type: String}
 }, { collection: 'housing' })
 const housingModal = mongoose.model('housing', housingSchema)
+
+//投诉表
+var complaintSchema = new Schema({
+    name: {type: String},
+    content: {type: String},
+    date: {type: String},
+    result: {type: String},
+}, { collection: 'complaint' })
+const complaintModal = mongoose.model('complaint', complaintSchema)
+
+//维修表
+var repairSchema = new Schema({
+    name: {type: String},
+    content: {type: String},
+    money: {type: String},
+    date: {type: String},
+}, { collection: 'repair' })
+const repairModal = mongoose.model('repair', repairSchema)
+
+//报修表
+var reportSchema = new Schema({
+    root: {type: String},
+    name: {type: String},
+    tel: {type: String},
+    project: {type: String},
+    explain: {type: String},
+    statu: {type: Number},
+}, { collection: 'report' })
+const reportModal = mongoose.model('report', reportSchema)
 module.exports = {
     UserModal,
     equipmentModal,
     securityModal,
     ownerModal,
-    housingModal
+    housingModal,
+    complaintModal,
+    repairModal,
+    reportModal,
 };
