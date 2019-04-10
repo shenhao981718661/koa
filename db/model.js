@@ -72,7 +72,7 @@ const repairModal = mongoose.model('repair', repairSchema)
 
 //报修表
 var reportSchema = new Schema({
-    root: {type: String},
+    room: {type: String},
     name: {type: String},
     tel: {type: String},
     project: {type: String},
@@ -80,6 +80,36 @@ var reportSchema = new Schema({
     statu: {type: Number},
 }, { collection: 'report' })
 const reportModal = mongoose.model('report', reportSchema)
+
+//缴费表
+var paySchema = new Schema({
+    room: {type: String},
+    property: {type: String},
+    car: {type: String},
+    month: {type: String},
+    date: {type: String},
+}, { collection: 'pay' })
+const payModal = mongoose.model('pay', paySchema)
+
+//车位表
+var carSchema = new Schema({
+    parkingLog: {type: String},
+    licensePlate: {type: String},
+    model: {type: String},
+    room: {type: String},
+    name: {type: String},
+}, { collection: 'car' })
+const carModal = mongoose.model('car', carSchema)
+
+//留言表
+var messageSchema = new Schema({
+    parkingLog: {type: String},
+    licensePlate: {type: String},
+    model: {type: String},
+    room: {type: String},
+    name: {type: String},
+}, { collection: 'message' })
+const messageModal = mongoose.model('message', messageSchema)
 module.exports = {
     UserModal,
     equipmentModal,
@@ -89,4 +119,7 @@ module.exports = {
     complaintModal,
     repairModal,
     reportModal,
+    payModal,
+    carModal,
+    messageModal,
 };
