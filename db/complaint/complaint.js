@@ -10,7 +10,6 @@ class Mongodb{
                 if(err){
                     reject(err)
                 }
-                console.log(res)
                 resolve(res)
             })
         })

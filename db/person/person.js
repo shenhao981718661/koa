@@ -10,12 +10,11 @@ class Mongodb {
   // 查询
     query () {
        return new Promise((resolve, reject) => {
-        UserModal.find({'type':2},{userName:1,type:1}, (err, res) => {
+        UserModal.find({'type':2}, (err, res) => {
            let call = {}
            if(err) {
              reject(err)
            }
-           console.log(res)
            resolve(res)
          })
        })
@@ -29,7 +28,6 @@ class Mongodb {
              reject(err)
            }
            resolve(res)
-           console.log(res)
          })
        })
        

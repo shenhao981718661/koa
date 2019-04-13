@@ -11,7 +11,12 @@ const routers = router
         ctx.response.body = await person.query()
     })
     .post('/adduser', async (ctx) => {
-        console.log(ctx.request.body)
         ctx.response.body = await db.save(ctx.request.body)
+    })
+    .post('/edit', async (ctx) => {
+        ctx.response.body = await db.edit(ctx.request.body)
+    })
+    .post('/remove', async (ctx) => {
+        ctx.response.body = await db.remove(ctx.request.body)
     })
     module.exports = routers

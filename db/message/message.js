@@ -10,13 +10,11 @@ class Mongodb{
                 if(err){
                     reject(err)
                 }
-                console.log(res)
                 resolve(res)
             })
         })
     }
     add(obj){
-        console.log(obj)
         const m = new messageModal(obj)
         return new Promise((resolve,reject) => {
             m.save((err,res) => {

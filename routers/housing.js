@@ -6,7 +6,6 @@ const routers = router
         ctx.response.body = await db.query()
     })
     .post('/add', async (ctx) => {
-        console.log(ctx.request.body)
         ctx.response.body = await db.add(ctx.request.body)
     })
 module.exports = routers

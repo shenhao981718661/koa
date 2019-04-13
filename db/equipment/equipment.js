@@ -10,7 +10,6 @@ class Mongodb{
                 if(err){
                     reject(err)
                 }
-                console.log(res)
                 resolve(res)
             })
         })
@@ -19,6 +18,35 @@ class Mongodb{
         const m = new equipmentModal(obj)
         return new Promise((resolve,reject) => {
             m.save((err,res) => {
+                if(err){
+                    reject(err)
+                }
+                resolve(res)
+            })
+        })
+    }
+
+    edit(obj){
+        return new Promise((resolve,reject) => {
+            equipmentModal.update({_id: obj._id},{
+                $set: {
+                    name: obj.name,
+                    money: obj.money,
+                    norms: obj.norms,
+                    remarks: obj.remarks,
+                }
+            }, (err,res) => {
+                if(err){
+                    reject(err)
+                }
+                resolve(res)
+            })
+        })
+    }
+
+    remove(obj){
+        return new Promise((resolve,reject) => {
+            equipmentModal.remove({_id: obj._id}, (err,res) => {
                 if(err){
                     reject(err)
                 }
