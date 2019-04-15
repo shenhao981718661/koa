@@ -25,5 +25,37 @@ class Mongodb{
             })
         })
     }
+    edit(obj){
+        return new Promise((resolve,reject) => {
+            reportModal.update({_id: obj._id},{
+              $set: {
+                room: obj.room,
+                name: obj.name,
+                tel: obj.tel,
+                project: obj.project,
+                explain: obj.explain,
+                date: obj.date,
+                statu: obj.statu,
+              }
+          }, (err,res) => {
+              if(err){
+                  reject(err)
+              }
+              resolve(res)
+          })
+      })
+      }
+  
+      //删除
+      remove(obj){
+        return new Promise((resolve,reject) => {
+            reportModal.remove({_id: obj._id}, (err,res) => {
+                if(err){
+                    reject(err)
+                }
+                resolve(res)
+            })
+        })
+    }
 }
 module.exports = new Mongodb()
