@@ -13,10 +13,10 @@ class Mongodb {
              reject(err)
            }
            if(res.length != 0){
-             call = {
+             call = Object.assign({
                success: true,
                type: type
-             }
+             },...res)
            } else{
              call = {
                success: false,
