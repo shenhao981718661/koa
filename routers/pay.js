@@ -14,4 +14,7 @@ const routers = router
     .post('/remove', async (ctx) => {
         ctx.response.body = await db.remove(ctx.request.body)
     })
+    .post('/queryPay', async (ctx) => {
+        ctx.response.body = await db.queryPay(ctx.request.body)
+    })
 module.exports = routers

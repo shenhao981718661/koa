@@ -19,4 +19,7 @@ const routers = router
     .post('/remove', async (ctx) => {
         ctx.response.body = await db.remove(ctx.request.body)
     })
+    .post('/changepassword', async (ctx) => {
+        ctx.response.body = await db.changepassword(ctx.request.body)
+    })
     module.exports = routers
