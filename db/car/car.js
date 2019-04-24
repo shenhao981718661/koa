@@ -54,5 +54,15 @@ class Mongodb{
             })
         })
     }
+    queryUserCar(obj){
+        return new Promise((resolve,reject) => {
+            carModal.find({room: obj.room}, (err,res) => {
+                if(err){
+                    reject(err)
+                }
+                resolve(res)
+            })
+        })
+    }
 }
 module.exports = new Mongodb()
