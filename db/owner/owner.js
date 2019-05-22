@@ -1,4 +1,5 @@
 const {ownerModal} = require('../model.js')
+const db = require('../index.js')
 
 class Mongodb{
     constructor(){
@@ -19,8 +20,9 @@ class Mongodb{
         return new Promise((resolve,reject) => {
             m.save((err,res) => {
                 if(err){
-                    reject(err)
+                    reject(err);
                 }
+                db.save({userName: obj.tel, password: obj.tel, type: 1, room: obj.room})
                 resolve(res)
             })
         })
