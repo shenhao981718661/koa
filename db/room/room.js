@@ -1,6 +1,4 @@
-const {ownerModal} = require('../model.js')
-const db = require('../index.js')
-const roomdb = require('../room/room.js')
+const {roomModal} = require('../model.js')
 
 class Mongodb{
     constructor(){
@@ -8,7 +6,7 @@ class Mongodb{
     }
     query(){
         return new Promise((resolve, reject) => {
-            ownerModal.find({}, (err, res) => {
+            roomModal.find({}, (err, res) => {
                 if(err){
                     reject(err)
                 }
@@ -17,29 +15,27 @@ class Mongodb{
         })
     }
     add(obj){
-        const m = new ownerModal(obj)
+        const m = new reportModal(obj)
         return new Promise((resolve,reject) => {
             m.save((err,res) => {
                 if(err){
-                    reject(err);
+                    reject(err)
                 }
-                roomdb.remove(obj)
-                db.save({userName: obj.tel, password: obj.tel, type: 1, room: obj.room})
                 resolve(res)
             })
         })
     }
     edit(obj){
         return new Promise((resolve,reject) => {
-            ownerModal.update({_id: obj._id},{
+            reportModal.update({_id: obj._id},{
               $set: {
-                  name: obj.name,
-                  age: obj.age,
-                  sex: obj.sex,
-                  room: obj.room,
-                  tel: obj.tel,
-                  date: obj.date,
-                  remarks: obj.remarks,
+                room: obj.room,
+                name: obj.name,
+                tel: obj.tel,
+                project: obj.project,
+                explain: obj.explain,
+                date: obj.date,
+                statu: obj.statu,
               }
           }, (err,res) => {
               if(err){
@@ -53,22 +49,24 @@ class Mongodb{
       //删除
       remove(obj){
         return new Promise((resolve,reject) => {
-            ownerModal.remove({_id: obj._id}, (err,res) => {
+            console.log(obj)
+            roomModal.remove({room: obj.room}, (err,res) => {
                 if(err){
+
                     reject(err)
                 }
+                console.log("k")
                 resolve(res)
             })
         })
     }
-    queryUserInfo(obj){
-        console.log(obj)
+    queryreport(obj){
         return new Promise((resolve,reject) => {
-            ownerModal.find({room: obj.room}, (err, res) => {
+            reportModal.find({room: obj.room}, (err,res) => {
                 if(err){
                     reject(err)
                 }
-                resolve(...res)
+                resolve(res)
             })
         })
     }

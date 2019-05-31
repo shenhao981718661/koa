@@ -36,7 +36,7 @@ var ownerSchema = new Schema({
     sex: {type: String},
     room: {type: String},
     tel: {type: String},
-    date: {type: String},
+    date: {type: Date},
     remarks: {type: String}
 }, { collection: 'owner' })
 const ownerModal = mongoose.model('owner', ownerSchema)
@@ -111,6 +111,12 @@ var messageSchema = new Schema({
     name: {type: String},
 }, { collection: 'message' })
 const messageModal = mongoose.model('message', messageSchema)
+
+//房屋表
+var roomSchema = new Schema({
+    room: {type: String}
+}, { collection: 'room' })
+const roomModal = mongoose.model('room', roomSchema)
 module.exports = {
     UserModal,
     equipmentModal,
@@ -123,4 +129,5 @@ module.exports = {
     payModal,
     carModal,
     messageModal,
+    roomModal,
 };
