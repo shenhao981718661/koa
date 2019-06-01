@@ -49,13 +49,11 @@ class Mongodb{
       //删除
       remove(obj){
         return new Promise((resolve,reject) => {
-            console.log(obj)
             roomModal.remove({room: obj.room}, (err,res) => {
                 if(err){
 
                     reject(err)
                 }
-                console.log("k")
                 resolve(res)
             })
         })

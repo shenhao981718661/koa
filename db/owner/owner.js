@@ -62,7 +62,6 @@ class Mongodb{
         })
     }
     queryUserInfo(obj){
-        console.log(obj)
         return new Promise((resolve,reject) => {
             ownerModal.find({room: obj.room}, (err, res) => {
                 if(err){

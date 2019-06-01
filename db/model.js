@@ -104,9 +104,9 @@ const carModal = mongoose.model('car', carSchema)
 
 //留言表
 var messageSchema = new Schema({
-    parkingLog: {type: String},
-    licensePlate: {type: String},
-    model: {type: String},
+    content: {type: String},
+    back: {type: String},
+    date: {type: Date},
     room: {type: String},
     name: {type: String},
 }, { collection: 'message' })
